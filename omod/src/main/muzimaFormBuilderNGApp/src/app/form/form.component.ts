@@ -2,6 +2,19 @@ import { Component, OnInit, ViewEncapsulation, Input, Output, EventEmitter } fro
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
+  selector: 'app-notify',
+  template: `<span class="notification">
+                Code Copied! ✔
+              </span>`,
+  styles: [`
+    .notification {
+      color: #076b5f;
+    }
+  `],
+})
+export class NotifyComponent { }
+
+@Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
@@ -81,16 +94,3 @@ export class FormComponent implements OnInit {
   }
 
 }
-
-@Component({
-  selector: 'app-notify',
-  template: `<span class="notification">
-                Code Copied! ✔
-              </span>`,
-  styles: [`
-    .notification {
-      color: #076b5f;
-    }
-  `],
-})
-export class NotifyComponent { }
