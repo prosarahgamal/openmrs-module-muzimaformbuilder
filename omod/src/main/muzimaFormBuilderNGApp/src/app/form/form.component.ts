@@ -29,6 +29,7 @@ export class FormComponent implements OnInit {
   selHtmlCode(htmlCode) {
     this.htmlCode = htmlCode;
     this.cleanHtmlFromNG();
+    this.formatHtml();
   }
 
   cleanHtmlFromNG() {
@@ -66,6 +67,11 @@ export class FormComponent implements OnInit {
     document.execCommand('copy');
     document.body.removeChild(selBox);
     this.notify();
+  }
+
+  formatHtml() {
+    this.htmlCode = this.htmlCode.replace(new RegExp('>', 'g'), '>\n');
+    this.htmlCode = this.htmlCode.replace(new RegExp('  ', 'g'), ' ');
   }
 
   notify() {
